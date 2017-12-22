@@ -22,7 +22,7 @@ class GeoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = dirname(__DIR__) . 'config/geocode.php';
+        $source = dirname(__DIR__) . '/src/config/geocode.php';
 
         $this->publishes([$source => config_path('geocode.php')]);
 

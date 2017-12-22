@@ -3,6 +3,7 @@
 namespace Shumex\Geocode;
 
 use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Facades\Cache;
 use Shumex\Geocode\Exceptions\GeoException;
 use \GuzzleHttp\Client;
 
@@ -63,6 +64,11 @@ class Geocode
             }
         }
 
+        if (Cache::has(implode('&',$params))){
+            $response = Cache::get(implode('&',$params));
+            return new GeoResponse(json_decode($response));
+        }
+
         try {
             $client = new Client();
             $response = json_decode($client->get('https://maps.googleapis.com/maps/api/geocode/json', [
@@ -83,6 +89,7 @@ class Geocode
                 throw new GeoException($response->status);
 
             case "OK": # indicates that no errors occurred; the address was successfully parsed and at least one ggeocode was returned.
+                Cache::forever(implode('&',$params), json_encode($response));
                 return new GeoResponse($response);
         }
 
@@ -112,6 +119,11 @@ class Geocode
             $params['language'] = $this->language;
         }
 
+        if (Cache::has(implode('&',$params))){
+            $response = Cache::get(implode('&',$params));
+            return new GeoResponse(json_decode($response));
+        }
+
         try {
             $client = new Client();
             $response = json_decode($client->get('https://maps.googleapis.com/maps/api/geocode/json', [
@@ -132,6 +144,7 @@ class Geocode
                 throw new GeoException($response->status);
 
             case "OK": # indicates that no errors occurred; the address was successfully parsed and at least one ggeocode was returned.
+                Cache::forever(implode('&',$params), json_encode($response));
                 return new GeoResponse($response);
         }
 
