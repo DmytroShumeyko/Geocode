@@ -1,0 +1,33 @@
+{
+    "name": "shumex/geocode",
+    "description": "Google Geocode API for Laravel",
+    "keywords": ["laravel", "google", "geocode", "geocoding", "address", "latitude", "longitude", "api"],
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "^6.3",
+        "predis/predis": "^1.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmytro Shymeyko",
+            "email": "dmytro.shumeyko@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Shumex\\Geocode\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeoServiceProvider"
+            ],
+            "aliases": {
+                "Geocode": "Facades\\Geocode"
+            }
+        }
+    }
+}
