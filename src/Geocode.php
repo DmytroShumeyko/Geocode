@@ -100,10 +100,11 @@ class Geocode
      *
      * @param string $lat
      * @param string $lng
+     * @param string|null $language
      * @return GeoResponse
      * @throws GeoException
      */
-    public function latLng(string $lat, string $lng): GeoResponse
+    public function latLng(string $lat, string $lng, string $language = null): GeoResponse
     {
 
         if (empty($lat) || empty($lng)) {
@@ -117,6 +118,14 @@ class Geocode
 
         if (!empty($this->language)) {
             $params['language'] = $this->language;
+        }
+
+        if (!empty($this->language)) {
+            if ($language === null) {
+                $params['language'] = $this->language;
+            } else {
+                $params['language'] = $language;
+            }
         }
 
         if (Cache::has(implode('&',$params))){
