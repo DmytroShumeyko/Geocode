@@ -38,7 +38,7 @@ GEOCODE_GOOGLE_LANGUAGE=en # pt-BR, es, de, it, fr, en-GB
 You can find data from addresses:
 ```php
 try {
-    $response = Geocode::make()->address('Zaporizhzhia', 'en');
+    $response = Geocode::make()->address('Saporischschja', 'de');
     if ($response) {
         echo $response->latitude();
         echo "<br>";
@@ -54,7 +54,7 @@ try {
 // Output
 // 35.139567
 // 47.8388
-// Zaporizhzhia, Zaporiz'ka oblast, Ukraine, 69061
+// Saporischschja, Ukraine, 69061
 ```
 
 Or from latitude/longitude:

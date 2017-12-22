@@ -20,9 +20,9 @@ class GeoResponse
      *
      * @return object
      */
-    public function raw():object
+    public function raw(): object
     {
-        return (object) $this->response;
+        return (object)$this->response;
     }
 
     /**
@@ -30,7 +30,7 @@ class GeoResponse
      *
      * @return mixed
      */
-    public function formattedAddress():string
+    public function formattedAddress(): string
     {
         return $this->response->formatted_address;
     }
@@ -40,7 +40,7 @@ class GeoResponse
      *
      * @return mixed
      */
-    public function latitude():string
+    public function latitude(): string
     {
         return $this->response->geometry->location->lat;
     }
@@ -50,7 +50,7 @@ class GeoResponse
      *
      * @return mixed
      */
-    public function longitude():string
+    public function longitude(): string
     {
         return $this->response->geometry->location->lng;
     }

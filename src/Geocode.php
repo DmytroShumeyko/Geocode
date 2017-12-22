@@ -64,8 +64,8 @@ class Geocode
             }
         }
 
-        if (Cache::has(implode('&',$params))){
-            $response = Cache::get(implode('&',$params));
+        if (Cache::has(implode('&', $params))) {
+            $response = Cache::get(implode('&', $params));
             return new GeoResponse(json_decode($response));
         }
 
@@ -89,7 +89,7 @@ class Geocode
                 throw new GeoException($response->status);
 
             case "OK": # indicates that no errors occurred; the address was successfully parsed and at least one ggeocode was returned.
-                Cache::forever(implode('&',$params), json_encode($response));
+                Cache::forever(implode('&', $params), json_encode($response));
                 return new GeoResponse($response);
         }
 
@@ -128,8 +128,8 @@ class Geocode
             }
         }
 
-        if (Cache::has(implode('&',$params))){
-            $response = Cache::get(implode('&',$params));
+        if (Cache::has(implode('&', $params))) {
+            $response = Cache::get(implode('&', $params));
             return new GeoResponse(json_decode($response));
         }
 
@@ -153,7 +153,7 @@ class Geocode
                 throw new GeoException($response->status);
 
             case "OK": # indicates that no errors occurred; the address was successfully parsed and at least one ggeocode was returned.
-                Cache::forever(implode('&',$params), json_encode($response));
+                Cache::forever(implode('&', $params), json_encode($response));
                 return new GeoResponse($response);
         }
 
