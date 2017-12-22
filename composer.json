@@ -23,10 +23,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "GeoServiceProvider"
+                "Shumex\\Geocode\\GeoServiceProvider"
             ],
             "aliases": {
-                "Geocode": "Facades\\Geocode"
+                "Geocode": "Shumex\\Geocode\\Facades\\Geocode"
             }
         }
     }

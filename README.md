@@ -9,7 +9,7 @@ This package can be installed via [Composer](http://getcomposer.org).
 Run composer require command.
 
 ```sh
-composer require "shumex/geocode":"~1.0"
+composer require shumex/geocode
 ```
 
 ### Laravel 5.5
@@ -37,8 +37,6 @@ GEOCODE_GOOGLE_LANGUAGE=en # pt-BR, es, de, it, fr, en-GB
 ## Usage
 You can find data from addresses:
 ```php
-$response = Geocode::make()->address('1 Infinite Loop');
-
 try {
     $response = Geocode::make()->address('Запорожье', 'ru');
     if ($response) {
